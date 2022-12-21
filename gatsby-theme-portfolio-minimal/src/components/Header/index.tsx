@@ -4,7 +4,6 @@ import { Logo } from '../Logo';
 import { Helmet } from 'react-helmet';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSiteConfiguration } from '../../hooks/useSiteConfiguration';
-import { Animation } from '../Animation';
 import * as classes from './style.module.css';
 
 export function Header(): React.ReactElement {
@@ -63,12 +62,12 @@ export function Header(): React.ReactElement {
         <header className={classes.Header}>
             {/* Make background blurry when sidebar is opened */}
             <Helmet bodyAttributes={{ class: open ? classes.Blurred : undefined }} />
-            <Animation className={classes.ContentWrapper} type="fadeDown">
+            <div className={classes.ContentWrapper}>
                 <Link to="/" aria-label="home">
                     <Logo fontSize="2rem" color="var(--primary-color" />
                 </Link>
                 {isDesktopBreakpoint ? topNavigationBar : sideNavigationBar}
-            </Animation>
+            </div>
         </header>
     );
 }

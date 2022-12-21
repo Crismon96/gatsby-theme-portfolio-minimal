@@ -1,6 +1,5 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Animation } from '../Animation';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { Icon } from '../Icon';
 import { ImageObject } from '../../types';
@@ -33,8 +32,7 @@ export function Project(props: ProjectProps): React.ReactElement {
     const isDesktopBreakpoint = useMediaQuery('(min-width: 992px)');
 
     return (
-        <Animation
-            type="fadeUp"
+        <div
             className={classes.Project}
             style={{
                 flexDirection: isDesktopBreakpoint && props.index % 2 === 0 ? 'row-reverse' : undefined,
@@ -91,6 +89,6 @@ export function Project(props: ProjectProps): React.ReactElement {
                     alt={props.data.image.alt || `Project ${props.data.title}`}
                 />
             )}
-        </Animation>
+        </div>
     );
 }

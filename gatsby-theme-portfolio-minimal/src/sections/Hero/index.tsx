@@ -1,6 +1,5 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Animation } from '../../components/Animation';
 import { useCalendlyWidget } from '../../hooks/useCalendlyWidget';
 import { Section } from '../../components/Section';
 import { SocialProfiles } from '../../components/SocialProfiles';
@@ -15,7 +14,7 @@ export function HeroSection(props: PageSection): React.ReactElement {
     const CalendlyWidget = useCalendlyWidget(data.calendly);
 
     return (
-        <Animation type="fadeUp">
+        <div>
             {CalendlyWidget}
             <Section anchor={props.sectionId} additionalClasses={[classes.HeroContainer]}>
                 {data.heroPhoto?.src && (
@@ -32,13 +31,13 @@ export function HeroSection(props: PageSection): React.ReactElement {
                     <div className={classes.Intro}>
                         {data.intro && <span className={classes.ImagePrefix}>{data.intro}</span>}
                         {data.image?.src && (
-                            <Animation className={classes.Image} type="waving-hand" iterationCount={3}>
+                            <div className={classes.Image}>
                                 <GatsbyImage
                                     image={data.image.src.childImageSharp.gatsbyImageData}
                                     alt={data.image.alt || `Intro Image`}
                                     loading="eager"
                                 />
-                            </Animation>
+                            </div>
                         )}
                     </div>
                     <h1 className={classes.Title}>{data.title}</h1>
@@ -48,13 +47,13 @@ export function HeroSection(props: PageSection): React.ReactElement {
                         {data.subtitle.suffix}
                     </h2>
                     <p>{data.description}</p>
-                    <Animation type="fadeLeft">
+                    <div>
                         {data.socialProfiles && (
                             <SocialProfiles from={data.socialProfiles.from} showIcon={data.socialProfiles.showIcons} />
                         )}
-                    </Animation>
+                    </div>
                 </div>
             </Section>
-        </Animation>
+        </div>
     );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Animation } from '../../components/Animation';
 import { Section } from '../../components/Section';
 import { useLocalDataSource } from './data';
 import { PageSection } from '../../types';
@@ -11,11 +10,11 @@ export function AboutSection(props: PageSection): React.ReactElement {
     const data = response.allAboutMarkdown.sections[0];
 
     return (
-        <Animation type="fadeUp">
+        <div>
             <Section anchor={props.sectionId} heading={props.heading}>
                 <div className={classes.About}>
                     <div className={classes.Description} dangerouslySetInnerHTML={{ __html: data.html }} />
-                    <Animation type="fadeLeft">
+                    <div>
                         <div className={classes.ImageWrapper}>
                             <GatsbyImage
                                 image={data.frontmatter.imageSrc.childImageSharp.gatsbyImageData}
@@ -23,9 +22,9 @@ export function AboutSection(props: PageSection): React.ReactElement {
                                 alt={data.frontmatter.imageAlt || `About Image`}
                             />
                         </div>
-                    </Animation>
+                    </div>
                 </div>
             </Section>
-        </Animation>
+        </div>
     );
 }

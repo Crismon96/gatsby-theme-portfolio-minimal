@@ -18,15 +18,7 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps): React.ReactElement {
     const { globalState } = useGlobalState();
-    // const showSplashScreen = props.useSplashScreenAnimation && !globalState.splashScreenDone;
     const darkModeEnabled = globalState.theme === Theme.Dark;
-
-    // const splashScreenView = (
-    //     <>
-    //         <Helmet bodyAttributes={{ 'data-theme': Theme.Light }} />
-    //         <SplashScreen />
-    //     </>
-    // );
 
     const layoutView = (
         <>

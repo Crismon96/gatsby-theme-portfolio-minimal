@@ -1,5 +1,4 @@
 import React from 'react';
-import { Animation } from '../../components/Animation';
 import { Section } from '../../components/Section';
 import { Slider } from '../../components/Slider';
 import { ArticleCard, ArticleCardSkeleton } from '../../components/ArticleCard';
@@ -75,19 +74,17 @@ export function ArticlesSection(props: ArticlesSectionProps): React.ReactElement
     }, []);
 
     return (
-        <Animation type="fadeUp">
-            <Section anchor={props.sectionId} heading={props.heading}>
-                <Slider additionalClasses={[classes.Articles]}>
-                    {articles.length > 0
-                        ? articles.slice(0, 3).map((article, key) => {
-                              return <ArticleCard key={key} data={article} />;
-                          })
-                        : [...Array(3)].map((_, key) => {
-                              return <ArticleCardSkeleton key={key} />;
-                          })}
-                </Slider>
-            </Section>
-        </Animation>
+        <Section anchor={props.sectionId} heading={props.heading}>
+            <Slider additionalClasses={[classes.Articles]}>
+                {articles.length > 0
+                    ? articles.slice(0, 3).map((article, key) => {
+                          return <ArticleCard key={key} data={article} />;
+                      })
+                    : [...Array(3)].map((_, key) => {
+                          return <ArticleCardSkeleton key={key} />;
+                      })}
+            </Slider>
+        </Section>
     );
 }
 

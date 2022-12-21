@@ -1,5 +1,4 @@
 import React from 'react';
-import { Animation } from '../../components/Animation';
 import { Section } from '../../components/Section';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Button, ButtonType } from '../../components/Button';
@@ -21,34 +20,27 @@ export function InterestsSection(props: PageSection): React.ReactElement {
     }
 
     return (
-        <Animation type="fadeUp">
-            <Section anchor={props.sectionId} heading={props.heading}>
-                <div className={classes.Interests}>
-                    {data.interests.slice(0, shownInterests).map((interest, key) => {
-                        return (
-                            <Animation key={key} className={classes.Interest} type="scaleIn">
-                                {interest.image.src && (
-                                    <GatsbyImage
-                                        image={interest.image.src.childImageSharp.gatsbyImageData}
-                                        className={classes.Icon}
-                                        alt={interest.image.alt || `Interest ${interest.label}`}
-                                    />
-                                )}{' '}
-                                {interest.label}
-                            </Animation>
-                        );
-                    })}
-                    {shouldShowButton && shownInterests < data.interests.length && (
-                        <Animation type="scaleIn">
-                            <Button
-                                type={ButtonType.BUTTON}
-                                onClickHandler={loadMoreHandler}
-                                label={data.button.label}
-                            />
-                        </Animation>
-                    )}
-                </div>
-            </Section>
-        </Animation>
+        <Section anchor={props.sectionId} heading={props.heading}>
+            <div className={classes.Interests}>
+                {data.interests.slice(0, shownInterests).map((interest, key) => {
+                    return (
+                        <>
+                            {interest.image.src && (
+                                <GatsbyImage
+                                    key={key}
+                                    image={interest.image.src.childImageSharp.gatsbyImageData}
+                                    className={classes.Icon}
+                                    alt={interest.image.alt || `Interest ${interest.label}`}
+                                />
+                            )}{' '}
+                            {interest.label}
+                        </>
+                    );
+                })}
+                {shouldShowButton && shownInterests < data.interests.length && (
+                    <Button type={ButtonType.BUTTON} onClickHandler={loadMoreHandler} label={data.button.label} />
+                )}
+            </div>
+        </Section>
     );
 }
