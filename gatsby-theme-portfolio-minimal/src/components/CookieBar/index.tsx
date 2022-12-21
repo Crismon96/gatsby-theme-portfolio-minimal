@@ -10,7 +10,7 @@ export function CookieBar(): React.ReactElement {
     const location = useLocation();
 
     return (
-        <Animation className={classes.CookieBar} type="fadeUp" delay={1000}>
+        <Animation className={classes.CookieBar} type="fadeUp">
             <CookieConsent
                 cookieName="gatsby-gdpr-google-analytics"
                 buttonId="confirm"

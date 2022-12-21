@@ -13,7 +13,6 @@ export function SplashScreen(): React.ReactElement {
         <Animation
             className={classes.SplashScreen}
             type={shouldUnmount === false ? 'fadeIn' : 'fadeOut'}
-            duration={250}
             fillMode="forwards"
             onAnimationEnd={() => {
                 if (shouldUnmount) dispatch({ type: ActionType.SetSplashScreenDone, value: true });
@@ -24,7 +23,6 @@ export function SplashScreen(): React.ReactElement {
                 <Animation
                     className={classes.Backdrop}
                     type="reduceHeight"
-                    delay={800}
                     fillMode="forwards"
                     onAnimationEnd={() => {
                         // Wait 500ms and start unmounting the splash screen

@@ -36,7 +36,7 @@ export function Animation(props: AnimationProps): React.ReactElement {
     // Set defaults
     const type = props.type ?? 'fadeIn';
     const timing = props.timing ?? 'ease-out';
-    const duration = props.duration ?? 200;
+    const duration = props.duration ?? 100;
     const delay = props.delay ?? 0;
     const count = props.iterationCount ?? 1;
     const fillMode = props.fillMode ?? 'backwards';

@@ -15,7 +15,7 @@ export function AboutSection(props: PageSection): React.ReactElement {
             <Section anchor={props.sectionId} heading={props.heading}>
                 <div className={classes.About}>
                     <div className={classes.Description} dangerouslySetInnerHTML={{ __html: data.html }} />
-                    <Animation type="fadeLeft" delay={200}>
+                    <Animation type="fadeLeft">
                         <div className={classes.ImageWrapper}>
                             <GatsbyImage
                                 image={data.frontmatter.imageSrc.childImageSharp.gatsbyImageData}

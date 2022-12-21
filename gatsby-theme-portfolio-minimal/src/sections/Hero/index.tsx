@@ -15,7 +15,7 @@ export function HeroSection(props: PageSection): React.ReactElement {
     const CalendlyWidget = useCalendlyWidget(data.calendly);
 
     return (
-        <Animation type="fadeUp" delay={400}>
+        <Animation type="fadeUp">
             {CalendlyWidget}
             <Section anchor={props.sectionId} additionalClasses={[classes.HeroContainer]}>
                 {data.heroPhoto?.src && (
@@ -32,7 +32,7 @@ export function HeroSection(props: PageSection): React.ReactElement {
                     <div className={classes.Intro}>
                         {data.intro && <span className={classes.ImagePrefix}>{data.intro}</span>}
                         {data.image?.src && (
-                            <Animation className={classes.Image} type="waving-hand" duration={2500} iterationCount={3}>
+                            <Animation className={classes.Image} type="waving-hand" iterationCount={3}>
                                 <GatsbyImage
                                     image={data.image.src.childImageSharp.gatsbyImageData}
                                     alt={data.image.alt || `Intro Image`}
@@ -48,7 +48,7 @@ export function HeroSection(props: PageSection): React.ReactElement {
                         {data.subtitle.suffix}
                     </h2>
                     <p>{data.description}</p>
-                    <Animation type="fadeLeft" delay={600}>
+                    <Animation type="fadeLeft">
                         {data.socialProfiles && (
                             <SocialProfiles from={data.socialProfiles.from} showIcon={data.socialProfiles.showIcons} />
                         )}

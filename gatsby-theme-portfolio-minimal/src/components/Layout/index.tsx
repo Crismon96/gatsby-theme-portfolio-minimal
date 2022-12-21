@@ -5,7 +5,6 @@ import '../../globalStyles/theme.css';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Theme, useGlobalState } from '../../context';
-import { SplashScreen } from '../SplashScreen';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { CookieBar } from '../CookieBar';
@@ -19,15 +18,15 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps): React.ReactElement {
     const { globalState } = useGlobalState();
-    const showSplashScreen = props.useSplashScreenAnimation && !globalState.splashScreenDone;
+    // const showSplashScreen = props.useSplashScreenAnimation && !globalState.splashScreenDone;
     const darkModeEnabled = globalState.theme === Theme.Dark;
 
-    const splashScreenView = (
-        <>
-            <Helmet bodyAttributes={{ 'data-theme': Theme.Light }} />
-            <SplashScreen />
-        </>
-    );
+    // const splashScreenView = (
+    //     <>
+    //         <Helmet bodyAttributes={{ 'data-theme': Theme.Light }} />
+    //         <SplashScreen />
+    //     </>
+    // );
 
     const layoutView = (
         <>
@@ -45,5 +44,5 @@ export function Layout(props: LayoutProps): React.ReactElement {
         </>
     );
 
-    return showSplashScreen ? splashScreenView : layoutView;
+    return layoutView;
 }
